@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class FirstPanel extends JPanel {
 
-    private JButton generatePassword;
+    public static JButton generatePassword;
     private JCheckBox upperCase;
     private JCheckBox lowerCase;
     private JCheckBox numbers;
@@ -15,7 +15,7 @@ public class FirstPanel extends JPanel {
 
     public FirstPanel() {
         this.napis = new JLabel("Password generator");
-        this.generatePassword = new JButton("Generate password");
+        generatePassword = new JButton("Generate password");
         this.upperCase = new JCheckBox("Upper case");
         this.lowerCase = new JCheckBox("Lower case");
         this.numbers = new JCheckBox("Numbers");
@@ -49,7 +49,7 @@ public class FirstPanel extends JPanel {
     }
 
     public void generatePassword() {
-        this.generatePassword.addActionListener(e -> {
+        generatePassword.addActionListener(e -> {
             if (!length.getText().isEmpty() && RandomGenerator.user.isSelected()){
                 RandomGenerator.user.setLength(Integer.parseInt(length.getText()));
                 RandomGenerator.user.setUpperCase(upperCase.isSelected());
@@ -58,7 +58,6 @@ public class FirstPanel extends JPanel {
                 RandomGenerator.user.setSpecial(special.isSelected());
                 RandomGenerator rg = new RandomGenerator();
                 rg.generatePassword();
-                new GeneratedPassword();
             }
         });
     }
@@ -92,5 +91,4 @@ public class FirstPanel extends JPanel {
         this.numbers.setSelected(true);
         this.special.setSelected(true);
     }
-
 }

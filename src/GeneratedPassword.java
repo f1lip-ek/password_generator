@@ -3,26 +3,25 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class GeneratedPassword extends JFrame {
+public class GeneratedPassword extends JPanel {
 
     private JLabel label;
     private JTextField password;
     private JPanel panel;
+    public static JButton goBack;
 
     public GeneratedPassword() {
+        goBack =  new JButton("Go Back");
         this.label = new JLabel("Generated password:");
         this.password = new JTextField(RandomGenerator.password);
         setPanel();
         action();
         this.setLayout(new BorderLayout());
         this.setSize(250, 250);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.add(label, BorderLayout.NORTH);
         this.add(panel, BorderLayout.CENTER);
-        this.setResizable(false);
+        this.add(goBack, BorderLayout.SOUTH);
         //this.pack();
-        this.setVisible(true);
     }
 
     public void setPanel(){
