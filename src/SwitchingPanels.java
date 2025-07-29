@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class SwitchingPanels extends JPanel {
 
-    private FirstPanel firstPanel;
-    private GeneratedPassword secondPanel;
-    private CardLayout cardLayout;
+    private final FirstPanel firstPanel;
+    private final GeneratedPassword secondPanel;
+    private final CardLayout cardLayout;
 
     public SwitchingPanels() {
         this.firstPanel = new FirstPanel();
@@ -33,18 +33,16 @@ public class SwitchingPanels extends JPanel {
                     firstPanel.rg.generatePassword();
                     secondPanel.password.setText(RandomGenerator.password);
 
-                    // Přepne na "Panel2" (GeneratedPassword) po stisku tlačítka
                     cardLayout.show(SwitchingPanels.this, "Panel2");
                 }
             }
         });
 
-        // Akce pro tlačítko "goBack" na druhém panelu
         GeneratedPassword.goBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RandomGenerator.password = "";
-                // Přepne zpět na "Panel1" (FirstPanel) po stisku tlačítka
+
                 cardLayout.show(SwitchingPanels.this, "Panel1");
             }
         });

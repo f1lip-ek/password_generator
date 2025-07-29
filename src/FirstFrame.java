@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class FirstFrame extends JFrame {
 
-    private SwitchingPanels panel;
+    private final SwitchingPanels panel;
 
     public FirstFrame() {
         this.panel = new SwitchingPanels();

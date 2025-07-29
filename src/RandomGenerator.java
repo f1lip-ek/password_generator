@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class RandomGenerator {
 
-    private Random rd;
-    private Chars chars;
+    private final Random rd;
+    private final Chars chars;
     public static User user;
     private int numOfCategories;
     private int randomNum;
@@ -25,7 +25,7 @@ public class RandomGenerator {
             this.randomNum = rd.nextInt(numOfCategories);
             categoryChecker();
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("res\\passwords.txt", true));){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("res\\passwords.txt", true))){
             writer.newLine();
             writer.write(password);
             writer.flush();
@@ -131,7 +131,7 @@ public class RandomGenerator {
                 password += chars.getRandomChar(chars.getZnaky());
             }
     /*15*/} else if (!user.isUpperCase() && !user.isLowerCase() && !user.isNumbers() && !user.isSpecial()) {
-            System.out.println("Nic jsi nevybral");
+            System.out.println("You choose nothing");
         }
 
         

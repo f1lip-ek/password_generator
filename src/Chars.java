@@ -7,19 +7,19 @@ public class Chars {
     /**
      *  1. Pole s malými a velkými písmeny bez háčků a čárek
      */
-    private char[] abecedaMalaPismena; // 26 malých
+    private final char[] abecedaMalaPismena; // 26 malých
 
-    private char[] abecedaVelkaPismena; // 26 velkych
+    private final char[] abecedaVelkaPismena; // 26 velkych
 
     /**
      * 2. Pole s čísly 0–9
       */
-    private char[] cisla;
+    private final char[] cisla;
 
     /**
      * 3. Pole se speciálními znaky
      */
-    private char[] znaky;
+    private final char[] znaky;
 
     public Chars() {
         this.abecedaMalaPismena = new char[26];

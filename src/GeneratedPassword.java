@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class GeneratedPassword extends JPanel {
 
-    private JLabel label;
+    private final JLabel label;
     public JTextField password;
     public static JButton goBack;
 

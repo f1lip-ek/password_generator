@@ -9,9 +9,7 @@ public class FirstPanel extends JPanel {
     public JCheckBox numbers;
     public JCheckBox special;
     public JTextField length;
-    private JPanel panel;
-    private JPanel panel1;
-    private JLabel napis;
+    private final JLabel napis;
     public RandomGenerator rg;
 
     public FirstPanel() {
@@ -30,22 +28,22 @@ public class FirstPanel extends JPanel {
     }
 
     public void setPanel(){
-        this.panel = new JPanel();
-        this.panel.setLayout(new GridLayout(4, 1));
-        this.panel.add(upperCase);
-        this.panel.add(lowerCase);
-        this.panel.add(numbers);
-        this.panel.add(special);
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 1));
+        panel.add(upperCase);
+        panel.add(lowerCase);
+        panel.add(numbers);
+        panel.add(special);
         this.add(panel, BorderLayout.CENTER);
         setParameters();
         setDefault();
     }
 
     public void setPanel1(){
-        this.panel1 = new JPanel();
-        this.panel1.setLayout(new BorderLayout());
-        this.panel1.add(napis, BorderLayout.NORTH);
-        this.panel1.add(length, BorderLayout.SOUTH);
+        JPanel panel1 = new JPanel();
+        panel1.setLayout(new BorderLayout());
+        panel1.add(napis, BorderLayout.NORTH);
+        panel1.add(length, BorderLayout.SOUTH);
         this.add(panel1, BorderLayout.NORTH);
     }
 
