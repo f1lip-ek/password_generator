@@ -17,7 +17,7 @@ public class GeneratedPassword extends JPanel {
         this.panel = new JPanel();
         goBack =  new JButton("Go Back");
         this.label = new JLabel("Generated password:");
-        this.password = new JTextField("gfjgfkjhg");
+        this.password = new JTextField("act");
         copyToClipboard = new JButton("Copy to clipboard");
         setPanel();
         this.setLayout(new BorderLayout());
@@ -50,16 +50,10 @@ public class GeneratedPassword extends JPanel {
         copyToClipboard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Získání textu z JTextFieldu
-                String textToCopy = password.getText();
+                StringSelection stringSelection = new StringSelection(RandomGenerator.password);
 
-                // 4. Vytvoření StringSelection z textu
-                StringSelection stringSelection = new StringSelection(textToCopy);
-
-                // 5. Získání systémové schránky
                 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
-                // 6. Nastavení obsahu schránky
                 clipboard.setContents(stringSelection, null);
             }
         });
