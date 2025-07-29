@@ -11,7 +11,6 @@ public class FirstFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(panel);
         this.setResizable(false);
-        //this.pack();
     }
 
     public void turnOnFrame(){

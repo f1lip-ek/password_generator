@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class FirstPanel extends JPanel {
 
@@ -25,6 +27,7 @@ public class FirstPanel extends JPanel {
         this.add(generatePassword, BorderLayout.SOUTH);
         setPanel();
         setPanel1();
+        rd();
     }
 
     public void setPanel(){
@@ -75,5 +78,16 @@ public class FirstPanel extends JPanel {
         this.lowerCase.setSelected(true);
         this.numbers.setSelected(true);
         this.special.setSelected(true);
+    }
+
+    public void rd(){
+        this.length.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    generatePassword.doClick();
+                }
+            }
+        });
     }
 }
