@@ -22,7 +22,7 @@ public class GeneratedPassword extends JPanel {
 
     public void setPanel() {
         this.password.setText(RandomGenerator.password);
-        this.password.setEditable(true);
+        this.password.setEditable(false);
         this.password.setBorder(null);
         this.password.setBackground(null);
         this.password.setHorizontalAlignment(SwingConstants.CENTER);
