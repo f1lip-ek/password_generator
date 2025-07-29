@@ -89,6 +89,5 @@ public class FirstPanel extends JPanel {
                 }
             }
         });
-
     }
 }
