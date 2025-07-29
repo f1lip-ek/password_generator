@@ -23,9 +23,7 @@ public class GeneratedPassword extends JPanel {
         this.setLayout(new BorderLayout());
         this.setSize(250, 250);
         this.add(this.label, BorderLayout.NORTH);
-        //this.add(goBack, BorderLayout.SOUTH);
         this.add(this.password, BorderLayout.CENTER);
-        //this.add(copyToClipboard, BorderLayout.SOUTH);
         setButtons();
         //this.pack();
     }
