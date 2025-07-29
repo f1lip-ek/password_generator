@@ -5,6 +5,7 @@ public class User {
     private boolean lowerCase;
     private boolean numbers;
     private boolean special;
+    private String password;
 
     public User() {
         this.length = 0;
@@ -34,6 +35,10 @@ public class User {
         return special;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setLength(int length) {
         this.length = length;
     }
@@ -52,6 +57,10 @@ public class User {
 
     public void setSpecial(boolean special) {
         this.special = special;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isSelected(){

@@ -7,15 +7,15 @@ public class RandomGenerator {
 
     private Random rd;
     private Chars chars;
-    public static User user = new User();
+    public static User user;
     private int numOfCategories;
     private int randomNum;
     public static String password;
-    private BufferedWriter writer;
 
     public RandomGenerator() {
         this.rd = new Random();
         this.chars = new Chars();
+        user = new User();
         password = "";
     }
 
@@ -25,8 +25,7 @@ public class RandomGenerator {
             this.randomNum = rd.nextInt(numOfCategories);
             categoryChecker();
         }
-        try {
-            this.writer = new BufferedWriter(new FileWriter("res\\passwords.txt", true));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("res\\passwords.txt", true));){
             writer.newLine();
             writer.write(password);
             writer.flush();
@@ -37,6 +36,7 @@ public class RandomGenerator {
     }
 
     public void setNumOfCategories(){
+        numOfCategories = 0;
         if(user.isUpperCase()){
             numOfCategories++;
         }

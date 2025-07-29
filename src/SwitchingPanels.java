@@ -20,38 +20,30 @@ public class SwitchingPanels extends JPanel {
         act();
     }
 
-//    public void act() {
-//        new Thread(() -> {
-//            while (true){
-//                if (FirstPanel.generatePassword.isSelected()) {
-//                    this.cardLayout.show(this, "Panel2");
-//                } else if (GeneratedPassword.goBack.isSelected()) {
-//                    this.cardLayout.show(this, "Panel1");
-//                }
-//                /*try {
-//                    Thread.sleep(100); // Počkej 100 ms před další kontrolou
-//                } catch (InterruptedException e) {
-//                    Thread.currentThread().interrupt(); // Zpracování přerušení
-//                    System.err.println("Thread interrupted: " + e.getMessage());
-//                    break;
-//                }*/
-//            }
-//        }).start();
-//    }
-
     public void act(){
-        firstPanel.generatePassword.addActionListener(new ActionListener() {
+        FirstPanel.generatePassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Přepne na "Panel2" (GeneratedPassword) po stisku tlačítka
-                cardLayout.show(SwitchingPanels.this, "Panel2"); // Použijeme SwitchingPanels.this pro odkaz na instanci vnitřní třídy
+                if (!firstPanel.length.getText().isEmpty() && RandomGenerator.user.isSelected()){
+                    RandomGenerator.user.setLength(Integer.parseInt(firstPanel.length.getText()));
+                    RandomGenerator.user.setUpperCase(firstPanel.upperCase.isSelected());
+                    RandomGenerator.user.setLowerCase(firstPanel.lowerCase.isSelected());
+                    RandomGenerator.user.setNumbers(firstPanel.numbers.isSelected());
+                    RandomGenerator.user.setSpecial(firstPanel.special.isSelected());
+                    firstPanel.rg.generatePassword();
+                    secondPanel.password.setText(RandomGenerator.password);
+
+                    // Přepne na "Panel2" (GeneratedPassword) po stisku tlačítka
+                    cardLayout.show(SwitchingPanels.this, "Panel2");
+                }
             }
         });
 
         // Akce pro tlačítko "goBack" na druhém panelu
-        secondPanel.goBack.addActionListener(new ActionListener() {
+        GeneratedPassword.goBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                RandomGenerator.password = "";
                 // Přepne zpět na "Panel1" (FirstPanel) po stisku tlačítka
                 cardLayout.show(SwitchingPanels.this, "Panel1");
             }

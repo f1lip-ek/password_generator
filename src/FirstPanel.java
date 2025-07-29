@@ -4,14 +4,15 @@ import java.awt.*;
 public class FirstPanel extends JPanel {
 
     public static JButton generatePassword;
-    private JCheckBox upperCase;
-    private JCheckBox lowerCase;
-    private JCheckBox numbers;
-    private JCheckBox special;
-    private JTextField length;
+    public JCheckBox upperCase;
+    public JCheckBox lowerCase;
+    public JCheckBox numbers;
+    public JCheckBox special;
+    public JTextField length;
     private JPanel panel;
     private JPanel panel1;
     private JLabel napis;
+    public RandomGenerator rg;
 
     public FirstPanel() {
         this.napis = new JLabel("Password generator");
@@ -21,6 +22,7 @@ public class FirstPanel extends JPanel {
         this.numbers = new JCheckBox("Numbers");
         this.special = new JCheckBox("Special characters");
         this.length = new JTextField("");
+        rg = new RandomGenerator();
         this.setLayout(new BorderLayout());
         this.add(generatePassword, BorderLayout.SOUTH);
         setPanel();
@@ -35,7 +37,6 @@ public class FirstPanel extends JPanel {
         this.panel.add(numbers);
         this.panel.add(special);
         this.add(panel, BorderLayout.CENTER);
-        generatePassword();
         setParameters();
         setDefault();
     }
@@ -46,20 +47,6 @@ public class FirstPanel extends JPanel {
         this.panel1.add(napis, BorderLayout.NORTH);
         this.panel1.add(length, BorderLayout.SOUTH);
         this.add(panel1, BorderLayout.NORTH);
-    }
-
-    public void generatePassword() {
-        generatePassword.addActionListener(e -> {
-            if (!length.getText().isEmpty() && RandomGenerator.user.isSelected()){
-                RandomGenerator.user.setLength(Integer.parseInt(length.getText()));
-                RandomGenerator.user.setUpperCase(upperCase.isSelected());
-                RandomGenerator.user.setLowerCase(lowerCase.isSelected());
-                RandomGenerator.user.setNumbers(numbers.isSelected());
-                RandomGenerator.user.setSpecial(special.isSelected());
-                RandomGenerator rg = new RandomGenerator();
-                rg.generatePassword();
-            }
-        });
     }
 
     public void setParameters(){
